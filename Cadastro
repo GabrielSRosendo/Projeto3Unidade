@@ -1,0 +1,34 @@
+package ProjetoUNI3;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Cadastro {
+    public static void main (String[] args){
+        Scanner scan = new Scanner(System.in);
+        ArrayList<Aluno> listDeAlunos = new ArrayList<>();
+        int op = 0;
+        do {
+            System.out.println("##ESCOLHA UMA OPÇÃO##\n");
+            System.out.println("1 - Cadastro de Aluno");
+            System.out.println("2 - Sair \n");
+            op = scan.nextInt();
+
+            switch(op){
+                case 1:
+                    System.out.println("Seja bem vindo ao cadastramento de Alunos\n");
+                    System.out.println("Seu nome: ");
+                    aluno.setNome(Scan.nextLine());
+                    System.out.println("Sua idade: ");
+                    aluno.setIdade(scan.nextInt());
+                    System.out.println("Seu sexo(genero)('M' para Masculino, 'F' para feminino, 'N' para não binario)");
+                    aluno.setGenero(scan.next().charAt(0));
+                    scan.nextLine();
+                    Aluno aluno = new Aluno();
+                case 2:
+                    System.out.println("Adeus");
+                    break;
+            }
+        } while(op != 2);
+    }
+}
