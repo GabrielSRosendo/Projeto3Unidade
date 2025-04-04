@@ -18,13 +18,29 @@ public class Cadastro {
                 case 1:
                     System.out.println("Seja bem vindo ao cadastramento de Alunos\n");
                     System.out.println("Seu nome: ");
-                    aluno.setNome(Scan.nextLine());
+                    aluno.setNome(scan.nextLine());
                     System.out.println("Sua idade: ");
                     aluno.setIdade(scan.nextInt());
                     System.out.println("Seu sexo(genero)('M' para Masculino, 'F' para feminino, 'N' para não binario)");
                     aluno.setGenero(scan.next().charAt(0));
+                    System.out.println("seu cpf: ");
+                    aluno.setCpf(scan.nextInt());
+                    System.out.println("sua idade: ");
+                    aluno.setIdade(scan.nextInt());
+                    System.out.println("seu cpf: ");
+                    aluno.setCpf(scan.nextInt());
+                    System.out.println("data de seu nascimento: ");
+                    aluno.setDataDeNascimento(scan.nextInt());
+                    System.out.println("voce tem uma alergia?: ");
+                    aluno.setAlergia(scan.nextLine());
+                    System.out.println("voce tem cardiopatia?: ");
+                    aluno.setCardiopata(scan.nextLine());
+                    System.out.println("de que cidade voce vem?: ");
+                    aluno.setCidade(scan.nextLine());
+                    System.out.println("qual e seu curso?: ");
+                    aluno.setCurso(scan.nextLine());
                     scan.nextLine();
-                    Aluno aluno = new Aluno();
+
                 case 2:
                     System.out.println("Adeus");
                     break;
