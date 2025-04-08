@@ -1,5 +1,7 @@
 package ProjetoUNI3;
 
+import com.sun.source.tree.NewClassTree;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -18,28 +20,30 @@ public class Cadastro {
                 case 1:
                     System.out.println("Seja bem vindo ao cadastramento de Alunos\n");
                     System.out.println("Seu nome: ");
-                    aluno.setNome(scan.nextLine());
+                    String nome = scan.nextLine();
                     System.out.println("Sua idade: ");
-                    aluno.setIdade(scan.nextInt());
+                    int idade = scan.nextInt();
                     System.out.println("Seu sexo(genero)('M' para Masculino, 'F' para feminino, 'N' para não binario)");
-                    aluno.setGenero(scan.next().charAt(0));
-                    System.out.println("seu cpf: ");
-                    aluno.setCpf(scan.nextInt());
-                    System.out.println("sua idade: ");
-                    aluno.setIdade(scan.nextInt());
-                    System.out.println("seu cpf: ");
-                    aluno.setCpf(scan.nextInt());
-                    System.out.println("data de seu nascimento: ");
-                    aluno.setDataDeNascimento(scan.nextInt());
-                    System.out.println("voce tem uma alergia?: ");
-                    aluno.setAlergia(scan.nextLine());
-                    System.out.println("voce tem cardiopatia?: ");
-                    aluno.setCardiopata(scan.nextLine());
-                    System.out.println("de que cidade voce vem?: ");
-                    aluno.setCidade(scan.nextLine());
-                    System.out.println("qual e seu curso?: ");
-                    aluno.setCurso(scan.nextLine());
+                    char genero = scan.next().charAt(0);
                     scan.nextLine();
+                    System.out.println("seu cpf: ");
+                    int cpf = scan.nextInt();
+                    System.out.println("data de seu nascimento: ");
+                    int datanascimento = scan.nextInt();
+                    System.out.println("digite sua matricula: ");
+                    int matricula = scan.nextInt();
+                    System.out.println("voce tem uma alergia?: ");
+                    String alergico = scan.nextLine();
+                    System.out.println("voce tem cardiopatia?: ");
+                    String cardiopata = scan.nextLine();
+                    System.out.println("de que cidade voce vem?: ");
+                    String cidade = scan.nextLine();
+                    System.out.println("qual e seu curso?: ");
+                    String curso = scan.nextLine();
+                    scan.nextLine();
+                    System.out.println("RA: ");
+                    String ra = scan.nextLine();
+                    Aluno aluno = new Aluno(nome, idade, genero, cpf, datanascimento, matricula, alergico, cardiopata, cidade, curso, ra );
 
                 case 2:
                     System.out.println("Adeus");
@@ -47,4 +51,5 @@ public class Cadastro {
             }
         } while(op != 2);
     }
+    
 }
