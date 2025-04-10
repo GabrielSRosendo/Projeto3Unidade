@@ -1,0 +1,90 @@
+package ProjetoUNI3;
+
+import java.util.Scanner;
+
+public class Cadastro {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        CadastroCarteiraDeEstudante service = new CadastroCarteiraDeEstudanteOperacoes();
+        service.carregarDados();
+
+        int opcao;
+        do {
+            System.out.println("\n--- Menu ---");
+            System.out.println("1. Cadastrar aluno");
+            System.out.println("2. Buscar por matrícula");
+            System.out.println("3. Buscar por CPF");
+            System.out.println("4. Remover aluno");
+            System.out.println("5. Listar alunos");
+            System.out.println("6. Sair");
+            System.out.print("Escolha: ");
+            opcao = Integer.parseInt(scanner.nextLine());
+
+
+            try {
+                switch (opcao) {
+                    case 1:
+                        System.out.print("Nome: ");
+                        String nome = scanner.nextLine();
+                        System.out.print("Idade: ");
+                        int idade = scanner.nextInt();
+                        System.out.print("Gênero (M/F/N): ");
+                        char genero = scanner.next().charAt(0);
+                        System.out.print("Digite seu CPF: ");
+                        String cpf = scanner.next();
+                        System.out.print("Digite sua Data de nascimento (YYYYMMDD): ");
+                        int data = scanner.nextInt();
+                        System.out.print("Digite sua Matrícula: ");
+                        scanner.nextLine();
+                        int matricula = scanner.nextInt();
+                        System.out.print("Voce possui alguma Alergia: ");
+                        scanner.nextLine();
+                        String alergico = scanner.nextLine();
+                        System.out.print("voce sofre de Cardiopatia: ");
+                        String cardiopata = scanner.nextLine();
+                        System.out.print("De que Cidade é: ");
+                        String cidade = scanner.nextLine();
+                        System.out.print("Qual o seu Curso: ");
+                        String curso = scanner.nextLine();
+
+                        Aluno aluno = new Aluno(nome, idade, genero, cpf, data, matricula, alergico, cardiopata, cidade, curso);
+                        service.cadastrar(aluno);
+                        break;
+                    case 2:
+                        System.out.print("Matrícula: ");
+                        int mat = scanner.nextInt();
+                        System.out.println(service.buscarPorMatricula(mat));
+                        scanner.nextLine();
+                        break;
+                    case 3:
+                        System.out.print("CPF: ");
+                        String cpfBusca = scanner.nextLine();
+                        System.out.println(service.buscarPorCpf(cpfBusca));
+                        break;
+                    case 4:
+                        System.out.print("CPF: ");
+                        String cpfRemover = scanner.nextLine();
+                        if (service.remover(cpfRemover)) {
+                            System.out.println("Removido com sucesso!");
+                        }
+                        break;
+                    case 5:
+                        service.listarTodos().forEach(System.out::println);
+                        break;
+                    case 6:
+                        service.salvarDados();
+                        System.out.println("Saindo...");
+                        break;
+                    default:
+                        System.out.println("Opção inválida.");
+                }
+            } catch (EstudanteNaoEncontradoException e) {
+                System.out.println("Erro: " + e.getMessage());
+            } catch (CpfInexistenteException | MatriculaInexistenteException e) {
+                throw new RuntimeException(e);
+            }
+        } while (opcao != 6);
+
+        scanner.close();
+    }
+}
