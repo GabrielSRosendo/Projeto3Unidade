@@ -1,0 +1,9 @@
+package ProjetoUNI3;
+
+public class CpfInexistenteException extends Exception {
+    public CpfInexistenteException(String message) {
+        super(message);
+    }
+
+    public CpfInexistenteException(){this("Cpf inválido");}
+}
