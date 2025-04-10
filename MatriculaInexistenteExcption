@@ -1,0 +1,9 @@
+package ProjetoUNI3;
+
+public class MatriculaInexistenteException extends Exception {
+    public MatriculaInexistenteException(String message) {
+        super(message);
+    }
+
+    public MatriculaInexistenteException(){this("Matrícula inválida");}
+}
