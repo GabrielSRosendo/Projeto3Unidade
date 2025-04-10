@@ -1,0 +1,9 @@
+package ProjetoUNI3;
+
+public class EstudanteNaoEncontradoException extends Exception {
+    public EstudanteNaoEncontradoException(String message) {
+        super(message);
+    }
+
+    public EstudanteNaoEncontradoException(){this("Estudante não encontrado");}
+}
