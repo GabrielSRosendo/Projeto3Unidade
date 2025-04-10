@@ -3,14 +3,11 @@ package ProjetoUNI3;
 public class AlunoP2 extends Aluno {
     private String ra;
 
-    public AlunoP2(String nome, int idade, char genero, int cpf, int datanascimento, int matricula, String alergico, String cardiopata, String cidade, String curso) {
+    public AlunoP2(String nome, int idade, char genero, String cpf, int datanascimento, int matricula,
+                   String alergico, String cardiopata, String cidade, String curso) {
         super(nome, idade, genero, cpf, datanascimento, matricula, alergico, cardiopata, cidade, curso);
+    }
 
-    }
-    public String getRa() {
-        return ra;
-    }
-    public void setRa(String ra) {
-        this.ra = ra;
-    }
+    public String getRa() { return ra; }
+    public void setRa(String ra) { this.ra = ra; }
 }
