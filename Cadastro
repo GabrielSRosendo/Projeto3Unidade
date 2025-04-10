@@ -34,17 +34,17 @@ public class Cadastro {
                         String cpf = scanner.next();
                         System.out.print("Data de nascimento (YYYYMMDD): ");
                         int data = scanner.nextInt();
-                        System.out.print("Matrícula: ");
+                        System.out.print("Digite sua Matrícula: ");
                         scanner.nextLine();
                         int matricula = scanner.nextInt();
-                        System.out.print("Alergias: ");
+                        System.out.print("Voce possui alguma Alergia: ");
                         scanner.nextLine();
                         String alergico = scanner.nextLine();
-                        System.out.print("Cardiopata: ");
+                        System.out.print("Voce sofre de alguma Cardiopatia: ");
                         String cardiopata = scanner.nextLine();
-                        System.out.print("Cidade: ");
+                        System.out.print("De que Cidade vem: ");
                         String cidade = scanner.nextLine();
-                        System.out.print("Curso: ");
+                        System.out.print("Qual Curso esta cursando: ");
                         String curso = scanner.nextLine();
 
                         Aluno aluno = new Aluno(nome, idade, genero, cpf, data, matricula, alergico, cardiopata, cidade, curso);
