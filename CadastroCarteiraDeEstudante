@@ -1,0 +1,13 @@
+package ProjetoUNI3;
+
+import java.util.List;
+
+public interface CadastroCarteiraDeEstudante {
+    void cadastrar(Aluno aluno);
+    Aluno buscarPorMatricula(int matricula) throws EstudanteNaoEncontradoException, MatriculaInexistenteException;
+    Aluno buscarPorCpf(String cpf) throws EstudanteNaoEncontradoException, CpfInexistenteException;
+    boolean remover(String cpf) throws EstudanteNaoEncontradoException, CpfInexistenteException;
+    List<Aluno> listarTodos();
+    void salvarDados();
+    void carregarDados();
+}
