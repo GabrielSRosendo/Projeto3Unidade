@@ -1,0 +1,60 @@
+package ProjetoUNI3;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CadastroCarteiraDeEstudanteOperacoes implements CadastroCarteiraDeEstudante {
+    private List<Aluno> alunos = new ArrayList<>();
+    private final String arquivo = "alunos.txt";
+
+    @Override
+    public void cadastrar(Aluno aluno) {
+        alunos.add(aluno);
+    }
+
+    @Override
+    public Aluno buscarPorMatricula(int matricula) throws EstudanteNaoEncontradoException, MatriculaInexistenteException {
+        return alunos.stream()
+                .filter(a -> a.getMatricula() == matricula)
+                .findFirst()
+                .orElseThrow(() -> new MatriculaInexistenteException("Matrícula não encontrada."));
+    }
+
+    @Override
+    public Aluno buscarPorCpf(String cpf) throws EstudanteNaoEncontradoException, CpfInexistenteException {
+        return alunos.stream()
+                .filter(a -> a.getCpf().equalsIgnoreCase(cpf))
+                .findFirst()
+                .orElseThrow(() -> new CpfInexistenteException("CPF não encontrado."));
+    }
+
+    @Override
+    public boolean remover(String cpf) throws EstudanteNaoEncontradoException, CpfInexistenteException {
+        Aluno aluno = buscarPorCpf(cpf);
+        return alunos.remove(aluno);
+    }
+
+    @Override
+    public List<Aluno> listarTodos() {
+        return new ArrayList<>(alunos);
+    }
+
+    @Override
+    public void salvarDados() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(arquivo))) {
+            oos.writeObject(alunos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void carregarDados() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(arquivo))) {
+            alunos = (List<Aluno>) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            alunos = new ArrayList<>();
+        }
+    }
+}
